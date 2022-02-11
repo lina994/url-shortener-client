@@ -1,0 +1,13 @@
+.App-footer {
+  min-height: 50px;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.App-footer p {
+  margin: 10px 20px;
+}
+

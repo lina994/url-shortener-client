@@ -1,0 +1,19 @@
+.App-content {
+  min-height: calc(50vh - 50px);
+  background-color: #d3d3d3;
+  padding-top: 20px;
+}
+
+.App-content h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.App-content .Result {
+  height: 40px;
+  margin-top: 10px;
+}
+
+.App-content p {
+  margin: 0;
+}
