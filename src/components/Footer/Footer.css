@@ -1,5 +1,6 @@
 .App-footer {
   min-height: 50px;
+  margin-top: 40px;
   background-color: #282c34;
   color: white;
   display: flex;
@@ -9,5 +10,6 @@
 
 .App-footer p {
   margin: 10px 20px;
+  font-size: calc(14px + 0.6vmin);
 }
 

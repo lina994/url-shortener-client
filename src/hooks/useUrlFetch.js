@@ -4,19 +4,26 @@ import instance from 'axiosConfig';
 export const useUrlFetch = () => {
   const [shortLink, setShortLink] = useState("");
   const [longUrl, setLongUrl] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState(null);
 
   async function fetchUrl() {
-    // setIsLoading(true);
-    const response = await instance.get('/shorten', {
-      params: {
-        shortLink: shortLink
-      }
-    });
-    setLongUrl(response.data.url);
-    // setIsLoading(false);
+    try {
+      setErrMessage(null);
+      const linkParts = shortLink.split('/');
+      const slug = linkParts[linkParts.length - 1];
+      const endpoint = linkParts[linkParts.length - 2] ==='r' ? '/shorten' : '/custom/shorten';
+      
+      const response = await instance.get(endpoint, {
+        params: {
+          slug: slug
+        }
+      });
+      setLongUrl(response.data.url);
+    } catch(error) {
+      setErrMessage(error.response.data.message);
+    }
   }
 
-  return { fetchUrl, shortLink, setShortLink, longUrl };
+  return { fetchUrl, shortLink, setShortLink, longUrl, errMessage };
 };
 

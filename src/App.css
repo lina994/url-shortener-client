@@ -1,13 +1,9 @@
 * {
   box-sizing: border-box;
+  font-family: 'Bubblegum Sans', cursive;
 }
 
 .App {
   min-height: 100vh;
-  text-align: center;
 }
-
-/* .App-link {
-  color: #61dafb;
-} */
 

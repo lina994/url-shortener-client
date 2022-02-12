@@ -1,0 +1,29 @@
+.Auth {
+  min-height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.Auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(14px + 0.6vmin);
+}
+
+.Auth-form label {
+  align-self: end;
+  margin-bottom: 10px;
+}
+
+.Auth-input {
+  font-size: calc(14px + 0.6vmin);
+  margin-left: 20px;
+}
+
+.Auth .Error-message {
+  color: #BA2347;
+  margin: 5px 0;
+}

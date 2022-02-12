@@ -1,0 +1,27 @@
+.App-button {
+  color: #fff;
+  font-size: calc(14px + 0.6vmin);
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+.createButtonBgColor {
+  background-color: #005AAD;
+}
+
+.createButtonBgColor:hover {
+  background-color: #3086d6;
+}
+
+.clearButtonBgColor {
+  background-color: #BA2347;
+}
+
+.clearButtonBgColor:hover {
+  background-color: #d45170;
+}
+

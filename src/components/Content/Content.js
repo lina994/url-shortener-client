@@ -1,37 +1,31 @@
-import Form from 'components/Form';
-import { useUrlFetch, useLinkCreate } from "hooks";
+import CreateRandomShortLink from 'components/CreateRandomShortLink';
+import CreateCustomeShortLink from 'components/CreateCustomeShortLink';
+import ShortLinkInfo from 'components/ShortLinkInfo';
 import './Content.css';
 
-function Content() {
-  const linkToUrl = useUrlFetch(); // fetchUrl, shortLink, setShortLink, longUrl
-  const urlToLink = useLinkCreate(); // createLink, shortLink, longUrl, setLongUrl
+function Content({token}) {
 
   return (
     <main className="App-content">
-      <section>
-        <h2>Converts a long url to a short link</h2>
-        <Form submitHandler={urlToLink.createLink} 
-              value={urlToLink.longUrl} 
-              updateValue={urlToLink.setLongUrl} />
-        <div className="Result">
-          {urlToLink.shortLink && (
-            <p>{urlToLink.shortLink}</p>
-          )}
-        </div>
-      </section>
-      <section>
-        <h2>Returns long url for the specified short link</h2>
-        <Form submitHandler={linkToUrl.fetchUrl} 
-              value={linkToUrl.shortLink} 
-              updateValue={linkToUrl.setShortLink} />
-        <div className="Result">
-          {linkToUrl.longUrl && (
-            <p>{linkToUrl.longUrl}</p>
-          )}
-        </div>
-      </section>
+      <CreateRandomShortLink />
+      
+      <div className="Benefits" >
+        Log In benefits:
+        <ul>
+          <li>Create personal short link</li>
+          <li>Control date inspiration</li>
+        </ul>
+      </div>
+
+      { token && (
+        <CreateCustomeShortLink token={token} />
+      )}
+
+      <ShortLinkInfo />
+
     </main>
   );
 }
 
 export default Content;
+

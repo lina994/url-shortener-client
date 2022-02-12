@@ -1,3 +1,4 @@
+import Button from '../Button'
 import './Form.css';
 
 function handleChange(event, updateValue) {
@@ -9,16 +10,35 @@ function handleSubmit(event, submitHandler) {
   event.preventDefault();
 }
 
+function handleClear(updateValues) {
+  for (let cb of updateValues) {
+    cb('');
+  }
+  
+}
 
 
-function Form({submitHandler, value, updateValue}) {
+
+function Form({labels, submitHandler, values, updateValues, errMessage}) {
   return (
-    <form onSubmit={(event) => handleSubmit(event, submitHandler)}>
-      <label>
-        Name:
-        <input type="text" value={value} onChange={(event) => handleChange(event, updateValue)} />
-      </label>
-      <input type="submit" value="Convert" />
+    <form className="App-form" onSubmit={(event) => handleSubmit(event, submitHandler)}>
+      {
+        labels.map((label, index) => {
+          return (
+            <label key={index}>
+              {label}
+              <input type="text" value={values[index]} onChange={(event) => handleChange(event, updateValues[index])} />
+            </label>
+          )
+        })
+      }
+      { errMessage && (
+        <div className="Error-message">{errMessage}</div>
+      )}
+      <div>
+        <Button type="submit" text="Create" bgColor="createButtonBgColor" />
+        <Button type="button" text="Clear" bgColor="clearButtonBgColor" clickHandler={() => handleClear(updateValues) } />
+      </div>
     </form>
   );
 }
